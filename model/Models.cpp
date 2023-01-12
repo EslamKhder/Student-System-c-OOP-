@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-
 // Create Model BaseEntity
 class BaseEntity {
 	private:
@@ -41,22 +40,30 @@ class BaseEntity {
 class Teacher: public BaseEntity {
 	private:
 		double salary;
+		int studentIds[5];
 	public:
 		//  Setter
 		void setSalary(double salary){
 			this->salary = salary;
+		}
+		void setStudentIds(int studentIds[5]){
+			for(int i=0;i<size;i++){
+				this->studentIds[i] == studentIds[i];
+			}
 		}
 		
 		// Getter
 		double getSalary(){
 			return salary;
 		}
+		int * getStudentIds(){
+			return studentIds;	
+		}
 };
 // Create Model Student
 class Student: public BaseEntity {
 	private:
 		double gpa;
-		string n;
 		Teacher teachers[5];
 	public:
 		//  Setter
@@ -78,6 +85,9 @@ class Student: public BaseEntity {
 			return teachers;
 		}
 };
+
+
+
 
 
 
