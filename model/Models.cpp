@@ -1,12 +1,10 @@
 #include<iostream>
 using namespace std;
-// Create Model BaseEntity
-class BaseEntity {
+// Create Model ShareData
+class ShareData {
 	private:
 		int id;
 		string name;
-		int age;
-		string phoneNumber;
 	public:
 		//  Setter
 		void setId(int id){
@@ -15,6 +13,22 @@ class BaseEntity {
 		void setName(string name){
 			this->name = name;
 		}
+		// Getter
+		int getId(){
+			return id;
+		}
+		string getName(){
+			return name;
+		}
+	
+};
+// Create Model BaseEntity
+class BaseEntity: public ShareData {
+	private:
+		int age;
+		string phoneNumber;
+	public:
+		//  Setter
 		void setAge(int age){
 			this->age = age;
 		}
@@ -23,12 +37,6 @@ class BaseEntity {
 		}
 		
 		// Getter
-		int getId(){
-			return id;
-		}
-		string getName(){
-			return name;
-		}
 		int getAge(){
 			return age;
 		}
@@ -40,14 +48,14 @@ class BaseEntity {
 class Teacher: public BaseEntity {
 	private:
 		double salary;
-		int studentIds[5];
+		int studentIds[500];
 	public:
 		//  Setter
 		void setSalary(double salary){
 			this->salary = salary;
 		}
 		void setStudentIds(int studentIds[5]){
-			for(int i=0;i<size;i++){
+			for(int i=0;i<sizeof(studentIds)/sizeof(studentIds[0]);i++){
 				this->studentIds[i] == studentIds[i];
 			}
 		}
@@ -71,7 +79,7 @@ class Student: public BaseEntity {
 			this->gpa = gpa;
 		}
 		void setTeachers(Teacher teachers[5]){
-			for(int i=0;i<5;i++){
+			for(int i=0;i<sizeof(teachers)/sizeof(teachers[0]);i++){
 				this->teachers[i] = teachers[i];
 			}
 		}
@@ -85,10 +93,21 @@ class Student: public BaseEntity {
 			return teachers;
 		}
 };
-
-
-
-
+// Create Model Course
+class Course : public ShareData{
+	private:
+		double hour;
+	public:
+		//  Setter
+		void setHour(double hour){
+			this->hour = hour;
+		}
+		
+		// Getter
+		double getHour(){
+			return hour;
+		}
+};
 
 
 
