@@ -48,7 +48,7 @@ class BaseEntity: public ShareData {
 class Teacher: public BaseEntity {
 	private:
 		double salary;
-		int studentIds[500];
+		int studentIds[5];
 	public:
 		//  Setter
 		void setSalary(double salary){
@@ -68,11 +68,36 @@ class Teacher: public BaseEntity {
 			return studentIds;	
 		}
 };
+// Create Model Course
+class Course : public ShareData{
+	private:
+		double hour;
+		int studentIds[5];
+	public:
+		//  Setter
+		void setHour(double hour){
+			this->hour = hour;
+		}
+		void setStudentIds(int studentIds[5]){
+			for(int i=0;i<sizeof(studentIds)/sizeof(studentIds[0]);i++){
+				this->studentIds[i] == studentIds[i];
+			}
+		}
+		
+		// Getter
+		double getHour(){
+			return hour;
+		}
+		int * getStudentIds(){
+			return studentIds;	
+		}
+};
 // Create Model Student
 class Student: public BaseEntity {
 	private:
 		double gpa;
 		Teacher teachers[5];
+		Course courses[5];
 	public:
 		//  Setter
 		void setGpa(double gpa){
@@ -81,6 +106,11 @@ class Student: public BaseEntity {
 		void setTeachers(Teacher teachers[5]){
 			for(int i=0;i<sizeof(teachers)/sizeof(teachers[0]);i++){
 				this->teachers[i] = teachers[i];
+			}
+		}
+		void setCourses(Course courses[5]){
+			for(int i=0;i<sizeof(courses)/sizeof(courses[0]);i++){
+				this->courses[i] = courses[i];
 			}
 		}
 		
@@ -92,22 +122,11 @@ class Student: public BaseEntity {
 		Teacher * getTeachers(){
 			return teachers;
 		}
-};
-// Create Model Course
-class Course : public ShareData{
-	private:
-		double hour;
-	public:
-		//  Setter
-		void setHour(double hour){
-			this->hour = hour;
-		}
-		
-		// Getter
-		double getHour(){
-			return hour;
+		Course * getCourses(){
+			return courses;
 		}
 };
+
 
 
 
