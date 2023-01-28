@@ -1,4 +1,4 @@
-#include "../model/repository.cpp"
+#include "../repository/Repository.cpp"
 class StudentService {
 	public:
 		virtual int addStudent(Student student) = 0;
