@@ -12,7 +12,6 @@ void showList(string value){
 	cout<<"5 - Exit"<<endl;
 }
 int main(){
-	
 	int process;
 	int flag = 0;
 	while(true){
