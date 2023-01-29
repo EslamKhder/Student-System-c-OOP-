@@ -1,8 +1,12 @@
 #include "../repository/Repository.cpp"
+
+/////////////////////////////  Student \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// interface StudentService
 class StudentService {
 	public:
 		virtual int addStudent(Student student) = 0;
 }
+// Class StudentServiceImpl
 class StudentServiceImpl {
 	private:
 		StudentRepository studentRepository;
@@ -12,10 +16,13 @@ class StudentServiceImpl {
 		}
 };
 
+/////////////////////////////  Course \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// interface CourseService
 class CourseService {
 	public:
 		int addCourse(Course course) = 0;
 };
+// Class CourseServiceImpl
 class CourseServiceImpl {
 	private:
 		CourseRepository courseRepository;
@@ -24,10 +31,13 @@ class CourseServiceImpl {
 			return courseRepository.addCourse(course);
 		}
 };
+/////////////////////////////  Teacher \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// interface TeacherService
 class TeacherService {
 	public:
 		virtual int addTeacher(Teacher teacher) = 0;
 };
+// Class TeacherRepositoryImpl
 class TeacherServiceImpl {
 	private:
 		TeacherRepository teacherRepository;
