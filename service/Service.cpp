@@ -5,11 +5,11 @@
 class StudentService {
 	public:
 		virtual int addStudent(Student student) = 0;
-}
+};
 // Class StudentServiceImpl
 class StudentServiceImpl {
 	private:
-		StudentRepository studentRepository;
+		StudentRepositoryImpl studentRepository;
 	public:
 		int addStudent(Student student) {
 			return studentRepository.addStudent(student);
@@ -20,12 +20,12 @@ class StudentServiceImpl {
 // interface CourseService
 class CourseService {
 	public:
-		int addCourse(Course course) = 0;
+		virtual int addCourse(Course course) = 0;
 };
 // Class CourseServiceImpl
 class CourseServiceImpl {
 	private:
-		CourseRepository courseRepository;
+		CourseRepositoryImpl courseRepository;
 	public:
 		int addCourse(Course course) {
 			return courseRepository.addCourse(course);
@@ -40,9 +40,9 @@ class TeacherService {
 // Class TeacherRepositoryImpl
 class TeacherServiceImpl {
 	private:
-		TeacherRepository teacherRepository;
+		TeacherRepositoryImpl teacherRepository;
 	public:
-		int Teacher(Teacher teacher) {
+		int addTeacher(Teacher teacher) {
 			return teacherRepository.addTeacher(teacher);
 		}
 };

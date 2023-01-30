@@ -4,7 +4,7 @@
 // Class StudentController
 class StudentController {
 	private:
-		StudentService studentService;
+		StudentServiceImpl studentService;
 	public:
 		int addStudent(Student student) {
 			return studentService.addStudent(student);
@@ -14,7 +14,7 @@ class StudentController {
 // Class CourseController
 class CourseController {
 	private:
-		CourseService courseService;
+		CourseServiceImpl courseService;
 	public:
 		int addCourse(Course course) {
 			return courseService.addCourse(course);
@@ -24,11 +24,9 @@ class CourseController {
 // Class TeacherController
 class TeacherController {
 	private:
-		TeacherService teacherService;
+		TeacherServiceImpl teacherService;
 	public:
 		int Teacher(Teacher teacher) {
 			return teacherService.addTeacher(teacher);
 		}
 };
-
-

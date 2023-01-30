@@ -62,7 +62,7 @@ class TeacherRepositoryImpl: public TeacherRepository {
 		Teacher teachers[25];
 		int index = 0;
 	public:
-		int Teacher(Teacher teacher) {
+		int addTeacher(Teacher teacher) {
 			if(index == 25){
 				cout<<"Full Course"<<endl;
 			} else {
