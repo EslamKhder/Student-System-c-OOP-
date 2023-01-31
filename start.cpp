@@ -34,8 +34,43 @@ void addStudent(){
 	cin>>gpa;
 	student.setGpa(gpa);
 	StudentController studentController;
-	int id = studentController.addStudent(student);
-	cout<<"Success Added With Id ["<<id<<"]"<<endl;
+	cout<<"Success Added Student With Id ["<<studentController.addStudent(student)<<"]"<<endl;
+}
+void addCourse(){
+	Course course;
+	cout<<"Please Enter Course Data: "<<endl;
+	cout<<"Enter Course Name :";
+	string name;
+	cin>>name;
+	course.setName(name);
+	cout<<"Enter Course hour :";
+	double hour;
+	cin>>hour;
+	course.setHour(hour);
+	CourseController courseController;
+	cout<<"Success Added Course With Id ["<<courseController.addCourse(course)<<"]"<<endl;
+}
+void addTeacher(){
+	cout<<"Please Enter Teacher Data: "<<endl;
+	Teacher teacher;
+	cout<<"Enter Teacher Name :";
+	string name;
+	cin>>name;
+	teacher.setName(name);
+	cout<<"Enter Teacher Age :";
+	int age;
+	cin>>age;
+	teacher.setAge(age);
+	cout<<"Enter Teacher PhoneNumber :";
+	string phoneNumber;
+	cin>>phoneNumber;
+	teacher.setPhoneNumber(phoneNumber);
+	cout<<"Enter Teacher Salary :";
+	double salary;
+	cin>>salary;
+	teacher.setSalary(salary);
+	TeacherController teacherController;
+	cout<<"Success Added Teacher With Id ["<<teacherController.addTeacher(teacher)<<"]"<<endl;
 }
 int process;
 int main(){
@@ -71,7 +106,7 @@ int main(){
 				cin>>process;
 				switch(process){
 					case 1:
-						cout<<"Add Course"<<endl;
+						addCourse();
 						break;
 					case 2:
 						cout<<"Remove Course"<<endl;
@@ -93,7 +128,7 @@ int main(){
 				cin>>process;
 				switch(process){
 					case 1:
-						cout<<"Add Teacher"<<endl;
+						addTeacher();
 						break;
 					case 2:
 						cout<<"Remove Teacher"<<endl;

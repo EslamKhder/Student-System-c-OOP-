@@ -26,7 +26,7 @@ class TeacherController {
 	private:
 		TeacherServiceImpl teacherService;
 	public:
-		int Teacher(Teacher teacher) {
+		int addTeacher(Teacher teacher) {
 			return teacherService.addTeacher(teacher);
 		}
 };
