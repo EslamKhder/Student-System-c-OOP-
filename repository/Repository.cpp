@@ -1,7 +1,7 @@
 #include "../model/Models.cpp"
 #include<bits/stdc++.h>
 using namespace std;
-
+// static Data
 class Data {
 	public:
 		static Student students[25];
@@ -14,6 +14,7 @@ class Data {
 		static int indexTeacher;
 		static int idTeacher;
 };
+// init static data
 Student Data::students[25];
 int Data::indexStudent = 0;
 int Data::idStudent = 1;
