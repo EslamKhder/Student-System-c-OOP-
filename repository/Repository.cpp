@@ -60,13 +60,15 @@ class CourseRepositoryImpl: public CourseRepository {
 	private:
 		Data data;
 	public:
+		// index = 0 1  id = 1 2
 		int addCourse(Course course) {
 			if(data.indexCourse == 25){
 				cout<<"Full Course"<<endl;
 			} else {
-				data.courses[data.indexCourse] = course;
-				data.indexCourse++;
+				course.setId(data.idCourse++);
+				data.courses[data.indexCourse++] = course;
 			}
+			return course.getId();
 		}
 };
 
@@ -82,12 +84,14 @@ class TeacherRepositoryImpl: public TeacherRepository {
 	private:
 		Data data;
 	public:
+		// index = 0 1   id = 1 2
 		int addTeacher(Teacher teacher) {
 			if(data.indexTeacher == 25){
-				cout<<"Full Teacher"<<endl;
+				cout<<"Full Course"<<endl;
 			} else {
-				data.teachers[data.indexTeacher] = teacher;
-				data.indexTeacher++;
+				teacher.setId(data.idTeacher++);
+				data.teachers[data.indexTeacher++] = teacher;
 			}
+			return teacher.getId();
 		}
 };

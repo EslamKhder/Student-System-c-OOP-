@@ -45,8 +45,8 @@ int main(){
 					cin>>gpa;
 					student.setGpa(gpa);
 					StudentController studentController;
-					studentController.addStudent(student);
-					cout<<student.getName()<<" "<<student.getPhoneNumber()<<"  "<<student.getAge()<<"  "<<student.getGpa()<<endl;
+					int id = studentController.addStudent(student);
+					cout<<"======> "<<id<<endl;
 				}
 				break;
 			case 2:
