@@ -2,6 +2,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class Data {
+	public:
+		static Student students[25];
+		static int indexStudent;
+		static int idStudent;
+		static Course courses[25];
+		static int indexCourse;
+		static int idCourse;
+		static Teacher teachers[25];
+		static int indexTeacher;
+		static int idTeacher;
+};
+Student Data::students[25];
+int Data::indexStudent = 0;
+int Data::idStudent = 1;
+Course Data::courses[25];
+int Data::indexCourse = 0;
+int Data::idCourse = 1;
+Teacher Data::teachers[25];
+int Data::indexTeacher = 0;
+int Data::idTeacher = 1;
+
 /////////////////////////////  Student \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // interface StudentRepository
 class StudentRepository {
@@ -9,20 +31,20 @@ class StudentRepository {
 		virtual int addStudent(Student student) = 0;
 		
 };
-
 // Class StudentRepositoryImpl
 class StudentRepositoryImpl: public StudentRepository {
 	private:
-		Student students[25];
-		int index = 0;
+		Data data;
 	public:
+		// index = 1   id = 2
 		int addStudent(Student student) {
-			if(index == 25){
+			if(data.indexStudent == 25){
 				cout<<"Full Student"<<endl;
 			} else {
-				students[index] = student;
-				index++;
+				student.setId(data.idStudent++); // ++i   i++
+				data.students[data.indexStudent++] = student;
 			}
+			return student.getId();
 		}
 };
 
@@ -36,15 +58,14 @@ class CourseRepository {
 // Class CourseRepositoryImpl
 class CourseRepositoryImpl: public CourseRepository {
 	private:
-		Course courses[25];
-		int index = 0;
+		Data data;
 	public:
 		int addCourse(Course course) {
-			if(index == 25){
+			if(data.indexCourse == 25){
 				cout<<"Full Course"<<endl;
 			} else {
-				courses[index] = course;
-				index++;
+				data.courses[data.indexCourse] = course;
+				data.indexCourse++;
 			}
 		}
 };
@@ -59,15 +80,14 @@ class TeacherRepository {
 // Class TeacherRepositoryImpl
 class TeacherRepositoryImpl: public TeacherRepository {
 	private:
-		Teacher teachers[25];
-		int index = 0;
+		Data data;
 	public:
 		int addTeacher(Teacher teacher) {
-			if(index == 25){
-				cout<<"Full Course"<<endl;
+			if(data.indexTeacher == 25){
+				cout<<"Full Teacher"<<endl;
 			} else {
-				teachers[index] = teacher;
-				index++;
+				data.teachers[data.indexTeacher] = teacher;
+				data.indexTeacher++;
 			}
 		}
 };
