@@ -33,7 +33,10 @@ void addStudent(){
 	cin>>gpa;
 	student.setGpa(gpa);
 	StudentController studentController;
-	cout<<"Success Added Student With Id ["<<studentController.addStudent(student)<<"]"<<endl;
+	int id = studentController.addStudent(student);
+	if(id != -1){
+		cout<<"Success Added Student With Id ["<<id<<"]"<<endl;
+	}
 }
 void addCourse(){
 	Course course;
