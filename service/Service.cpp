@@ -37,10 +37,16 @@ class CourseServiceImpl {
 	private:
 		CourseRepositoryImpl courseRepository;
 		CourseValidation courseValidation;
+		ValidationService validationService;
 	public:
 		int addCourse(Course course) {
 			if(courseValidation.validteCourse(course) == 1) {
-				return courseRepository.addCourse(course);
+				int id = courseRepository.addCourse(course);
+				if(id == -1){
+					validationService.fullData("Course");
+				} else {
+					return id;
+				}
 			}
 			return -1;
 		}
@@ -56,10 +62,16 @@ class TeacherServiceImpl {
 	private:
 		TeacherRepositoryImpl teacherRepository;
 		TeacherValidation teacherValidation;
+		ValidationService validationService;
 	public:
 		int addTeacher(Teacher teacher) {
 			if(teacherValidation.validteTeacher(teacher) == 1) {
-				return teacherRepository.addTeacher(teacher);
+				int id = teacherRepository.addTeacher(teacher);
+				if(id == -1){
+					validationService.fullData("Teacher");
+				} else {
+					return id;
+				}
 			}
 			return -1;
 		}

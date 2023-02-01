@@ -64,7 +64,7 @@ class CourseRepositoryImpl: public CourseRepository {
 		// index = 0 1  id = 1 2
 		int addCourse(Course course) {
 			if(data.indexCourse == 25){
-				cout<<"Full Course"<<endl;
+				return -1;
 			} else {
 				course.setId(data.idCourse++);
 				data.courses[data.indexCourse++] = course;
@@ -88,7 +88,7 @@ class TeacherRepositoryImpl: public TeacherRepository {
 		// index = 0 1   id = 1 2
 		int addTeacher(Teacher teacher) {
 			if(data.indexTeacher == 25){
-				cout<<"Full Course"<<endl;
+				return -1;
 			} else {
 				teacher.setId(data.idTeacher++);
 				data.teachers[data.indexTeacher++] = teacher;
