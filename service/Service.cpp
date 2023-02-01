@@ -5,6 +5,7 @@
 class StudentService {
 	public:
 		virtual int addStudent(Student student) = 0;
+		virtual Student getStudentById(int id) = 0;
 };
 // Class StudentServiceImpl
 class StudentServiceImpl {
@@ -12,6 +13,7 @@ class StudentServiceImpl {
 		StudentRepositoryImpl studentRepository;
 		StudentValidation studentValidation;
 		ValidationService validationService;
+		Student studentResult;
 	public:
 		int addStudent(Student student) {
 			if(studentValidation.validteStudent(student) == 1){
@@ -24,6 +26,13 @@ class StudentServiceImpl {
 			}
 			return -1;
 		}
+		Student getStudentById(int id) {
+			studentResult = studentRepository.getStudentById(id);
+			if(studentResult.getId() == -1){
+				cout<<"Student With Id ["<<id<<"] Not Exist"<<endl;
+			}
+			return studentResult;
+		}
 };
 
 /////////////////////////////  Course \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -31,6 +40,7 @@ class StudentServiceImpl {
 class CourseService {
 	public:
 		virtual int addCourse(Course course) = 0;
+		virtual Course getCourseById(int id) = 0;
 };
 // Class CourseServiceImpl
 class CourseServiceImpl {
@@ -38,6 +48,7 @@ class CourseServiceImpl {
 		CourseRepositoryImpl courseRepository;
 		CourseValidation courseValidation;
 		ValidationService validationService;
+		Course courseResult;
 	public:
 		int addCourse(Course course) {
 			if(courseValidation.validteCourse(course) == 1) {
@@ -50,12 +61,20 @@ class CourseServiceImpl {
 			}
 			return -1;
 		}
+		Course getCourseById(int id) {
+			courseResult = courseRepository.getCourseById(id);
+			if(courseResult.getId() == -1){
+				cout<<"Course With Id ["<<id<<"] Not Exist"<<endl;
+			}
+			return courseResult;
+		}
 };
 /////////////////////////////  Teacher \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 // interface TeacherService
 class TeacherService {
 	public:
 		virtual int addTeacher(Teacher teacher) = 0;
+		virtual Teacher getTeacherById(int id) = 0;
 };
 // Class TeacherRepositoryImpl
 class TeacherServiceImpl {
@@ -63,6 +82,7 @@ class TeacherServiceImpl {
 		TeacherRepositoryImpl teacherRepository;
 		TeacherValidation teacherValidation;
 		ValidationService validationService;
+		Teacher teacherResult;
 	public:
 		int addTeacher(Teacher teacher) {
 			if(teacherValidation.validteTeacher(teacher) == 1) {
@@ -74,5 +94,12 @@ class TeacherServiceImpl {
 				}
 			}
 			return -1;
+		}
+		Teacher getTeacherById(int id) {
+			teacherResult = teacherRepository.getTeacherById(id);
+			if(teacherResult.getId() == -1){
+				cout<<"Teacher With Id ["<<id<<"] Not Exist"<<endl;
+			}
+			return teacherResult;
 		}
 };
