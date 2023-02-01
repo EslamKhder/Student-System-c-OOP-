@@ -29,7 +29,7 @@ class StudentServiceImpl {
 		Student getStudentById(int id) {
 			studentResult = studentRepository.getStudentById(id);
 			if(studentResult.getId() == -1){
-				cout<<"Student With Id ["<<id<<"] Not Exist"<<endl;
+				validationService.notExist("Student",id);
 			}
 			return studentResult;
 		}
@@ -64,7 +64,7 @@ class CourseServiceImpl {
 		Course getCourseById(int id) {
 			courseResult = courseRepository.getCourseById(id);
 			if(courseResult.getId() == -1){
-				cout<<"Course With Id ["<<id<<"] Not Exist"<<endl;
+				validationService.notExist("Course",id);
 			}
 			return courseResult;
 		}
@@ -98,7 +98,7 @@ class TeacherServiceImpl {
 		Teacher getTeacherById(int id) {
 			teacherResult = teacherRepository.getTeacherById(id);
 			if(teacherResult.getId() == -1){
-				cout<<"Teacher With Id ["<<id<<"] Not Exist"<<endl;
+				validationService.notExist("Teacher",id);
 			}
 			return teacherResult;
 		}

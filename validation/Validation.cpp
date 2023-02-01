@@ -81,4 +81,7 @@ class ValidationService {
 		void fullData(string type){
 			cout<<"Full "<<type<<" !"<<endl;
 		}
+		void notExist(string type,int id){
+			cout<<type<<" With Id ["<<id<<"] Not Exist"<<endl;
+		}
 };
