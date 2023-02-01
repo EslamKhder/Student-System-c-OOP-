@@ -50,7 +50,11 @@ void addCourse(){
 	cin>>hour;
 	course.setHour(hour);
 	CourseController courseController;
-	cout<<"Success Added Course With Id ["<<courseController.addCourse(course)<<"]"<<endl;
+	int id = courseController.addCourse(course);
+	if(id != -1){
+		cout<<"Success Added Course With Id ["<<id<<"]"<<endl;
+	}
+	
 }
 void addTeacher(){
 	cout<<"Please Enter Teacher Data: "<<endl;
@@ -72,7 +76,10 @@ void addTeacher(){
 	cin>>salary;
 	teacher.setSalary(salary);
 	TeacherController teacherController;
-	cout<<"Success Added Teacher With Id ["<<teacherController.addTeacher(teacher)<<"]"<<endl;
+	int id = teacherController.addTeacher(teacher);
+	if(id != -1){
+		cout<<"Success Added Teacher With Id ["<<id<<"]"<<endl;
+	}
 }
 int process;
 int main(){

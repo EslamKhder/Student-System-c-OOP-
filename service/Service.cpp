@@ -50,7 +50,15 @@ class CourseServiceImpl {
 		CourseRepositoryImpl courseRepository;
 	public:
 		int addCourse(Course course) {
-			return courseRepository.addCourse(course);
+			if(course.getName().size() == 0 ||  //  ""
+				course.getName().size() < 4){  //"fghngd"
+				cout<<"Invalid Name !"<<endl;
+			} else if (course.getHour() > 15 || course.getHour() < 5){ // 5  15
+				cout<<"Invalid Hour !"<<endl;
+			} else {
+				return courseRepository.addCourse(course);
+			}
+			return -1;
 		}
 };
 /////////////////////////////  Teacher \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -65,6 +73,28 @@ class TeacherServiceImpl {
 		TeacherRepositoryImpl teacherRepository;
 	public:
 		int addTeacher(Teacher teacher) {
-			return teacherRepository.addTeacher(teacher);
+			if(teacher.getName().size() == 0 ||
+				teacher.getName().size() > 7 || 
+				teacher.getName().size() < 5) {
+				cout<<"Invalid Name !"<<endl;
+			} else if (teacher.getAge() > 60 || // 30 60
+					   teacher.getAge() < 30){ 
+				cout<<"Invalid Age !"<<endl;
+			} else if(teacher.getPhoneNumber()[0] != '0' ||
+						(
+						  (teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2]) != ('1' + '1') &&
+						  (teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2]) != ('1' + '2') &&
+						  (teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2]) != ('1' + '0') &&
+						  (teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2]) != ('1' + '5')
+					    ) 
+						|| teacher.getPhoneNumber().size() != 11
+					){ 
+				cout<<"Invalid Phone Number !"<<endl;
+			} else if (teacher.getSalary() < 5000 || teacher.getSalary() > 15000){
+				cout<<"Invalid Salary !"<<endl;
+			} else {
+				return teacherRepository.addTeacher(teacher);
+			}
+			return -1;
 		}
 };
