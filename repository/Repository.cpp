@@ -1,6 +1,7 @@
 #include "../model/Models.cpp"
 #include<bits/stdc++.h>
 using namespace std;
+
 // static Data
 class Data {
 	public:
@@ -31,6 +32,7 @@ class StudentRepository {
 	public:
 		virtual int addStudent(Student student) = 0;
 		virtual Student getStudentById(int id) = 0;
+		virtual int editStudent(Student student) = 0;
 		
 };
 // Class StudentRepositoryImpl
@@ -38,6 +40,7 @@ class StudentRepositoryImpl: public StudentRepository {
 	private:
 		Data data;
 		Student invalidStudent;
+		int index = -1;
 	public:
 		// index = 1   id = 2
 		int addStudent(Student student) {
@@ -58,6 +61,20 @@ class StudentRepositoryImpl: public StudentRepository {
 			invalidStudent.setId(-1);
 			return invalidStudent;
 		}
+		int editStudent(Student student){
+			for(int i=0;i<data.indexStudent;i++){
+				if(data.students[i].getId() == student.getId()){
+					index = i;
+					break;
+				}
+			}
+			if(index == -1){
+				return -1;
+			} else {
+				data.students[index] = student;
+				return index;
+			}
+		}
 };
 
 /////////////////////////////  Course \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -66,6 +83,7 @@ class CourseRepository {
 	public:
 		virtual int addCourse(Course course) = 0;
 		virtual Course getCourseById(int id) = 0;
+		virtual int editCourse(Course course) = 0;
 };
 
 // Class CourseRepositoryImpl
@@ -73,6 +91,7 @@ class CourseRepositoryImpl: public CourseRepository {
 	private:
 		Data data;
 		Course invalidCourse;
+		int index = -1;
 	public:
 		// index = 0 1  id = 1 2
 		int addCourse(Course course) {
@@ -93,6 +112,20 @@ class CourseRepositoryImpl: public CourseRepository {
 			invalidCourse.setId(-1);
 			return invalidCourse;
 		}
+		int editCourse(Course course) {
+			for(int i=0;i<data.indexCourse;i++){
+				if(data.courses[i].getId() == course.getId()){
+					index = i;
+					break;
+				}
+			}
+			if(index == -1){
+				return -1;
+			} else {
+				data.courses[index] = course;
+				return index;
+			}
+		}
 };
 
 /////////////////////////////  Teacher \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -101,6 +134,7 @@ class TeacherRepository {
 	public:
 		virtual int addTeacher(Teacher teacher) = 0;
 		virtual Teacher getTeacherById(int id) = 0;
+		virtual int editTeacher(Teacher teacher) = 0;
 };
 
 // Class TeacherRepositoryImpl
@@ -108,6 +142,7 @@ class TeacherRepositoryImpl: public TeacherRepository {
 	private:
 		Data data;
 		Teacher invalidTeacher;
+		int index = -1;
 	public:
 		// index = 0 1   id = 1 2
 		int addTeacher(Teacher teacher) {
@@ -127,5 +162,19 @@ class TeacherRepositoryImpl: public TeacherRepository {
 			}
 			invalidTeacher.setId(-1);
 			return invalidTeacher;
+		}
+		int editTeacher(Teacher teacher) {
+			for(int i=0;i<data.indexTeacher;i++){
+				if(data.teachers[i].getId() == teacher.getId()){
+					index = i;
+					break;
+				}
+			}
+			if(index == -1){
+				return -1;
+			} else {
+				data.teachers[index] = teacher;
+				return index;
+			}
 		}
 };
