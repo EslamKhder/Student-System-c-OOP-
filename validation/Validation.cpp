@@ -75,3 +75,10 @@ class TeacherValidation {
 			return -1;
 		}
 };
+
+class ValidationService {
+	public:
+		void fullData(string type){
+			cout<<"Full "<<type<<" !"<<endl;
+		}
+};

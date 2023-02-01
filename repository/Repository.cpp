@@ -40,7 +40,7 @@ class StudentRepositoryImpl: public StudentRepository {
 		// index = 1   id = 2
 		int addStudent(Student student) {
 			if(data.indexStudent == 25){
-				cout<<"Full Student"<<endl;
+				return -1;
 			} else {
 				student.setId(data.idStudent++); // ++i   i++
 				data.students[data.indexStudent++] = student;

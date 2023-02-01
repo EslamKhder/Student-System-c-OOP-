@@ -11,10 +11,16 @@ class StudentServiceImpl {
 	private:
 		StudentRepositoryImpl studentRepository;
 		StudentValidation studentValidation;
+		ValidationService validationService;
 	public:
 		int addStudent(Student student) {
 			if(studentValidation.validteStudent(student) == 1){
-				return studentRepository.addStudent(student);
+				int id = studentRepository.addStudent(student);
+				if(id == -1){
+					validationService.fullData("Student");
+				} else {
+					return id;
+				}
 			}
 			return -1;
 		}
