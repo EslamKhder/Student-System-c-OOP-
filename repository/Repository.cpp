@@ -30,12 +30,14 @@ int Data::idTeacher = 1;
 class StudentRepository {
 	public:
 		virtual int addStudent(Student student) = 0;
+		virtual Student getStudentById(int id) = 0;
 		
 };
 // Class StudentRepositoryImpl
 class StudentRepositoryImpl: public StudentRepository {
 	private:
 		Data data;
+		Student invalidStudent;
 	public:
 		// index = 1   id = 2
 		int addStudent(Student student) {
@@ -47,6 +49,15 @@ class StudentRepositoryImpl: public StudentRepository {
 			}
 			return student.getId();
 		}
+		Student getStudentById(int id) {
+			for(int i=0;i<data.indexStudent;i++){
+				if(data.students[i].getId() == id){
+					return data.students[i];
+				}
+			}
+			invalidStudent.setId(-1);
+			return invalidStudent;
+		}
 };
 
 /////////////////////////////  Course \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -54,12 +65,14 @@ class StudentRepositoryImpl: public StudentRepository {
 class CourseRepository {
 	public:
 		virtual int addCourse(Course course) = 0;
+		virtual Course getCourseById(int id) = 0;
 };
 
 // Class CourseRepositoryImpl
 class CourseRepositoryImpl: public CourseRepository {
 	private:
 		Data data;
+		Course invalidCourse;
 	public:
 		// index = 0 1  id = 1 2
 		int addCourse(Course course) {
@@ -71,6 +84,15 @@ class CourseRepositoryImpl: public CourseRepository {
 			}
 			return course.getId();
 		}
+		Course getCourseById(int id) {
+			for(int i=0;i<data.indexCourse;i++){
+				if(data.courses[i].getId() == id){
+					return data.courses[i];
+				}
+			}
+			invalidCourse.setId(-1);
+			return invalidCourse;
+		}
 };
 
 /////////////////////////////  Teacher \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -78,12 +100,14 @@ class CourseRepositoryImpl: public CourseRepository {
 class TeacherRepository {
 	public:
 		virtual int addTeacher(Teacher teacher) = 0;
+		virtual Teacher getTeacherById(int id) = 0;
 };
 
 // Class TeacherRepositoryImpl
 class TeacherRepositoryImpl: public TeacherRepository {
 	private:
 		Data data;
+		Teacher invalidTeacher;
 	public:
 		// index = 0 1   id = 1 2
 		int addTeacher(Teacher teacher) {
@@ -94,5 +118,14 @@ class TeacherRepositoryImpl: public TeacherRepository {
 				data.teachers[data.indexTeacher++] = teacher;
 			}
 			return teacher.getId();
+		}
+		Teacher getTeacherById(int id) {
+			for(int i=0;i<data.indexTeacher;i++){
+				if(data.teachers[i].getId() == id){
+					return data.teachers[i];
+				}
+			}
+			invalidTeacher.setId(-1);
+			return invalidTeacher;
 		}
 };
