@@ -83,6 +83,25 @@ void addTeacher(){
 		cout<<"Success Added Teacher With Id ["<<id<<"]"<<endl;
 	}
 }
+void showStudentByID() {
+	cout<<"Enter Student Id :";
+	cin>>id;
+	StudentController studentController;
+	studentController.showStudentById(id);
+}
+void showCourseByID() {
+	cout<<"Enter Course Id :";
+	cin>>id;
+	CourseController courseController;
+	courseController.showCourseById(id);
+}
+void showTeacherByID() {
+	cout<<"Enter Teacher Id :";
+	cin>>id;
+	TeacherController teacherController;
+	teacherController.showStudentById(id);
+}
+
 void switchStudent(){
 	switch(process){
 		case 1:
@@ -98,7 +117,7 @@ void switchStudent(){
 			cout<<"Show Student"<<endl;
 			break;
 		case 5:
-			cout<<"Show Student By Id"<<endl;
+			showStudentByID();
 			break;
 		case 6:
 			break;
@@ -121,7 +140,7 @@ void switchCourse(){
 			cout<<"Show Course"<<endl;
 			break;
 		case 5:
-			cout<<"Show Course By Id"<<endl;
+			showCourseByID();
 			break;
 		case 6:
 			break;
@@ -144,7 +163,7 @@ void switchTeacher(){
 			cout<<"Show Teacher"<<endl;
 			break;
 		case 5:
-			cout<<"Show Teacher By ID"<<endl;
+			showTeacherByID();
 			break;
 		case 6:
 			break;
