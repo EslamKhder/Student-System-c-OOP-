@@ -83,6 +83,66 @@ void addTeacher(){
 		cout<<"Success Added Teacher With Id ["<<id<<"]"<<endl;
 	}
 }
+void switchStudent(){
+	switch(process){
+		case 1:
+			addStudent();
+			break;
+		case 2:
+			cout<<"Remove Student"<<endl;
+			break;
+		case 3:
+			cout<<"Edit Student"<<endl;
+			break;
+		case 4:
+			cout<<"Show Student"<<endl;
+			break;
+		case 5:
+			break;
+		default:
+			cout<<"Invalid Choose"<<endl;
+	}
+}
+void switchCourse(){
+	switch(process){
+		case 1:
+			addCourse();
+			break;
+		case 2:
+			cout<<"Remove Course"<<endl;
+			break;
+		case 3:
+			cout<<"Edit Course"<<endl;
+			break;
+		case 4:
+			cout<<"Show Course"<<endl;
+			break;
+		case 5:
+			break;
+		default:
+			cout<<"Invalid Choose"<<endl;
+	}
+}
+void switchTeacher(){
+	switch(process){
+		case 1:
+			addTeacher();
+			break;
+		case 2:
+			cout<<"Remove Teacher"<<endl;
+			break;
+		case 3:
+			cout<<"Edit Teacher"<<endl;
+			break;
+		case 4:
+			cout<<"Show Teacher"<<endl;
+			break;
+		case 5:
+			break;
+		default:
+			cout<<"Invalid Choose"<<endl;
+	}
+}
 int main(){
 	int flag = 0;
 	while(true){
@@ -92,68 +152,17 @@ int main(){
 			case 1:
 				showList("Student");
 				cin>>process;
-				switch(process){
-					case 1:
-						addStudent();
-						break;
-					case 2:
-						cout<<"Remove Student"<<endl;
-						break;
-					case 3:
-						cout<<"Edit Student"<<endl;
-						break;
-					case 4:
-						cout<<"Show Student"<<endl;
-						break;
-					case 5:
-						break;
-					default:
-						cout<<"Invalid Choose"<<endl;
-				}
+				switchStudent();
 				break;
 			case 2:
 				showList("Course");
 				cin>>process;
-				switch(process){
-					case 1:
-						addCourse();
-						break;
-					case 2:
-						cout<<"Remove Course"<<endl;
-						break;
-					case 3:
-						cout<<"Edit Course"<<endl;
-						break;
-					case 4:
-						cout<<"Show Course"<<endl;
-						break;
-					case 5:
-						break;
-					default:
-						cout<<"Invalid Choose"<<endl;
-				}
+				switchCourse();
 				break;
 			case 3:
 				showList("Teacher");
 				cin>>process;
-				switch(process){
-					case 1:
-						addTeacher();
-						break;
-					case 2:
-						cout<<"Remove Teacher"<<endl;
-						break;
-					case 3:
-						cout<<"Edit Teacher"<<endl;
-						break;
-					case 4:
-						cout<<"Show Teacher"<<endl;
-						break;
-					case 5:
-						break;
-					default:
-						cout<<"Invalid Choose"<<endl;
-				}
+				switchTeacher();
 				break;
 			case 4:
 				flag = 1;

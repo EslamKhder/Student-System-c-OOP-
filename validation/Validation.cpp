@@ -1,3 +1,6 @@
+/******************* Validation Class ***********************/
+
+// StudentValidation Class
 class StudentValidation {
 	public:
 		int validteStudent(Student student){
@@ -26,13 +29,15 @@ class StudentValidation {
 			return -1;
 		}
 };
+
+// CourseValidation Class
 class CourseValidation {
 	public:
 		int validteCourse(Course course){
-			if(course.getName().size() == 0 ||  //  ""
-				course.getName().size() < 4){  //"fghngd"
+			if(course.getName().size() == 0 ||
+				course.getName().size() < 4){
 				cout<<"Invalid Name !"<<endl;
-			} else if (course.getHour() > 15 || course.getHour() < 5){ // 5  15
+			} else if (course.getHour() > 15 || course.getHour() < 5){
 				cout<<"Invalid Hour !"<<endl;
 			} else {
 				return 1;
@@ -40,6 +45,8 @@ class CourseValidation {
 			return -1;
 		}
 };
+
+// TeacherValidation Class
 class TeacherValidation {
 	public:
 		int validteTeacher(Teacher teacher){
